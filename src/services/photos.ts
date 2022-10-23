@@ -4,6 +4,6 @@ import { Photo } from "../types"
 export const photos = {
     getAll: async (): Promise <Photo[]> => {
         const { data } = await api.get('/photos')
-        return data
+        return data.slice(0, 100)
     }
 }

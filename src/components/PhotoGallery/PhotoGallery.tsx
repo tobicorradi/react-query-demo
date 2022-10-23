@@ -3,11 +3,9 @@ import { photos } from "../../services/photos";
 import { Photo } from "../../types";
 
 const PhotoGallery = () => {
-  const { data, isFetching } = useQuery<Photo[]>(["photos"], photos.getAll, {
+  const { data, isFetching, refetch } = useQuery<Photo[]>(["photos"], photos.getAll, {
     initialData: [],
   });
-
-  console.log(isFetching)
 
   return (
     <>
@@ -16,6 +14,7 @@ const PhotoGallery = () => {
       ): (
         <>
           <h1>PhotoGallery</h1>
+          <button onClick={() => refetch()}>Fetch data</button>
           <section>
             {data.map(({id, url, title}) => (
               <figure key={id}>

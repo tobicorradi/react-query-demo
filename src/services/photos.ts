@@ -1,4 +1,4 @@
-import api from "../assets/api"
+import api from "../api"
 
 export const photos = {
     getAll: () => {

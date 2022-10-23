@@ -1,7 +1,9 @@
 import api from "../api"
+import { Photo } from "../types"
 
 export const photos = {
-    getAll: () => {
-        return api.get('/photos').then(response => response.data)
+    getAll: async (): Promise <Photo[]> => {
+        const { data } = await api.get('/photos')
+        return data
     }
 }
